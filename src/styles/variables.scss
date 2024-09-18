@@ -1,0 +1,63 @@
+// ** Font and Typography **
+$font-family: 'Teko', sans-serif;
+$font-size-extra-small: 12px;
+$font-size-small: 12px;
+$font-size-medium: 14px;
+$font-size-large: 18px;
+
+// ** Colors **
+$background-white: #ffffff;
+$background-light-gray: #f1f3f4;
+$background-dark-blue: #007bff;
+$background-dark-blue-hover: #0056b3;
+$background-light: #f8f9fa;
+$highlight-blue: #0056b3;
+$text-dark: #333333;
+$text-light: #6c757d;
+$text-link: #007bff;
+$text-link-hover: #0056b3;
+$text-color-light: #70757a;
+$text-color-dark: #333333;
+$text-color-muted: #777;
+$divider-color: #ddd;
+$border-color-light: #e0e0e0;
+
+// ** Backgrounds & Borders **
+$bg-color-white: #ffffff;
+
+// ** Dimensions & Spacing **
+$border-radius: 4px; // Note: Adjusted to match typical use cases
+$input-border-radius: 4px;
+$box-shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+$box-shadow-popup: 0 2px 10px rgba(0, 0, 0, 0.15);
+$box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+$box-shadow-input: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
+$box-shadow-result: 0 2px 4px rgba(0, 0, 0, .2);
+$box-shadow-default: 0 1px 3px rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+$box-shadow-light-mobile: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+// ** Control Sizes **
+$control-size-small: 24px; // Adjusted to avoid duplicates
+$control-size-medium: 32px;
+$control-size: 36px;
+$control-size-large: 40px;
+
+// ** Padding & Margins **
+$padding: 20px;
+$padding-small: 8px;
+$padding-medium: 16px;
+$padding-large: 24px;
+$padding-default: 10px;
+
+// ** Buttons & Inputs **
+$button-padding: 8px 20px;
+$input-padding: 10px;
+
+// ** Transitions & Effects **
+$transition-duration: 0.3s;
+$filter-shadow: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+
+// ** Layout & Sizing **
+$sidebar-width-open: 220px;
+$sidebar-width-closed: 72px;
+$hover-bg-color: #f0f0f0;

@@ -1,0 +1,218 @@
+@import 'mixins';
+
+// Global focus styles
+:focus {
+  outline: none; // Remove default focus outline
+}
+
+// Searchbox container
+.searchbox-container {
+  margin: 12px 0 12px 16px;
+  position: relative;
+  left: 55px;
+
+  // Input container styling
+  .input-container {
+    display: flex;
+    align-items: center;
+
+    // Input wrapper
+    .input-wrapper {
+      .search-input {
+        @include input-styles(376px, 48px, 3px); // Apply input styles
+      }
+    }
+
+    // Button wrapper
+    .button-wrapper {
+      position: absolute;
+      top: 7px;
+      right: 0;
+      display: block;
+      color: $text-color-light;
+      align-items: center;
+
+      .search-button {
+        @include button-styles($button-padding, 30px); // Apply button styles
+      }
+    }
+  }
+
+  // Result container styling
+  .result-container {
+    overflow-y: auto;
+    background-color: #fff;
+    @include border-radius(0 0 $input-border-radius $input-border-radius); // Apply border radius
+    @include box-shadow($box-shadow-result); // Apply box shadow
+    font-size: 15px;
+    width: 375px;
+    display: block;
+    max-height: calc(100vh - 200px); // Limit max-height based on viewport
+
+    // Results list styling
+    .results-list {
+      list-style: none;
+      padding: 0;
+      border: none;
+      position: relative;
+      color: $text-color-light;
+      font-size: 12px;
+      min-height: 24px;
+      cursor: pointer;
+      direction: ltr;
+      text-align: left;
+      line-height: 32px;
+
+      // Result item styling
+      .result-item {
+        display: flex;
+        align-items: center;
+        padding: 12px 0;
+
+        .result-text {
+          margin-left: 10px;
+          font-size: 18px;
+          color: $text-color-dark;
+        }
+
+        // Divider between results
+        .divider {
+          border-top: 1px solid $divider-color;
+          margin: 10px 0;
+        }
+      }
+
+      // No results message styling
+      .no-results {
+        font-size: 18px;
+        color: $text-color-muted;
+        text-align: left;
+      }
+    }
+  }
+}
+
+// Mobile-first styles
+@media (max-width: 576px) {
+  .searchbox-container {
+    margin: 8px 0;
+    left: 0;
+    width: 400px;
+
+    .input-container {
+      flex-direction: column;
+
+      .input-wrapper {
+        .search-input {
+          width: 100%;
+          height: 40px;
+          padding-left: 10px;
+        }
+      }
+
+      .button-wrapper {
+        .search-button {
+          width: 100%;
+          padding: 12px;
+        }
+      }
+    }
+
+    .result-container {
+      width: 100%;
+      max-height: 300px; // Adjust max-height for mobile
+    }
+  }
+}
+
+// Styles for small tablets and larger mobile devices
+@media (min-width: 480px) and (max-width: 575px) {
+  .searchbox-container {
+    width: 345px;
+
+    .input-container {
+      .button-wrapper {
+        top: 0;
+        right: 20px;
+      }
+    }
+
+    .result-container {
+      width: 100%;
+      max-height: 400px; // Adjust max-height
+    }
+  }
+}
+
+// Styles for tablets and larger phones
+@media (min-width: 576px) and (max-width: 768px) {
+  .searchbox-container {
+    margin: 10px 0;
+    left: 0;
+    width: 400px;
+
+    .input-container {
+      flex-direction: row;
+
+      .input-wrapper {
+        .search-input {
+          width: 100%;
+          height: 44px;
+          padding-left: 2px;
+          font-size: 16px;
+        }
+      }
+
+      .button-wrapper {
+        position: absolute;
+        top: 0;
+        right: 15px;
+        width: auto;
+
+        .search-button {
+          padding: 14px;
+        }
+      }
+    }
+
+    .result-container {
+      width: 100%;
+      max-height: 400px; // Adjust max-height
+    }
+  }
+}
+
+// Styles for tablets and small desktops
+@media (min-width: 768px) and (max-width: 1028px) {
+  .searchbox-container {
+    margin: 12px 0;
+    left: 0;
+    width: 400px;
+
+    .input-container {
+      .input-wrapper {
+        .search-input {
+          width: 100%;
+          height: 48px;
+          padding-left: 15px;
+          font-size: 16px;
+        }
+      }
+
+      .button-wrapper {
+        position: absolute;
+        top: 0;
+        right: 5px;
+
+        .search-button {
+          padding: 16px;
+        }
+      }
+    }
+
+    .result-container {
+      width: 100%;
+      max-height: 450px; // Adjust max-height
+    }
+  }
+}

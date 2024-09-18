@@ -1,0 +1,149 @@
+@import 'mixins';
+// Container for the map
+.map-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .leaflet-container {
+    @include border-radius($border-radius);  // Adds rounded corners to the map
+    @include box-shadow($box-shadow-light);  // Slight shadow for depth
+    font-family: $font-family;
+  }
+
+  // Custom popup styling for better visibility
+  .leaflet-popup-content-wrapper {
+    background-color: $background-white;
+    @include border-radius(6px);
+    padding: 12px;
+    @include box-shadow($box-shadow-popup);
+
+    .leaflet-popup-content {
+      color: $text-dark;
+
+      strong {
+        font-size: 16px;
+        color: $text-dark; 
+      }
+
+      a {
+        color: $text-dark; 
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  // Custom marker icon styling
+  .leaflet-marker-icon {
+    filter: $filter-shadow;  // Adds a shadow effect to the marker icon
+  }
+}
+
+// Mobile devices
+@media (max-width: 576px) {
+  .map-container {
+    .leaflet-container {
+      @include border-radius(4px); // Smaller border radius for smaller screens
+      @include box-shadow($box-shadow-light); // Use default shadow for mobile
+    }
+
+    .leaflet-popup-content-wrapper {
+      @include border-radius(4px); // Smaller border radius
+      padding: 8px; // Less padding for smaller screens
+
+      .leaflet-popup-content {
+        strong {
+          font-size: 14px; // Smaller font size for better fit
+        }
+      }
+    }
+
+    .leaflet-marker-icon {
+      width: 24px; // Smaller marker icon size
+      height: 24px; // Maintain aspect ratio
+    }
+  }
+}
+
+
+// Small tablets and larger mobile devices
+@media (min-width: 576px) and (max-width: 768px) {
+  .map-container {
+    .leaflet-container {
+      @include border-radius(6px); // Slightly larger border radius
+      @include box-shadow($box-shadow-light); // Standard shadow for medium screens
+    }
+
+    .leaflet-popup-content-wrapper {
+      @include border-radius(5px); // Medium border radius
+      padding: 10px; // Medium padding
+
+      .leaflet-popup-content {
+        strong {
+          font-size: 15px; // Slightly larger font size
+        }
+      }
+    }
+
+    .leaflet-marker-icon {
+      width: 28px; // Medium marker icon size
+      height: 28px; // Maintain aspect ratio
+    }
+  }
+}
+
+// Tablets and small desktops
+@media (min-width: 768px) and (max-width: 1028px) {
+  .map-container {
+    .leaflet-container {
+      @include border-radius(8px); // Larger border radius
+      @include box-shadow($box-shadow-light); // Standard shadow
+    }
+
+    .leaflet-popup-content-wrapper {
+      @include border-radius(6px); // Larger border radius
+      padding: 12px; // Standard padding
+
+      .leaflet-popup-content {
+        strong {
+          font-size: 16px; // Standard font size
+        }
+      }
+    }
+
+    .leaflet-marker-icon {
+      width: 32px; // Larger marker icon size
+      height: 32px; // Maintain aspect ratio
+    }
+  }
+}
+
+// Large desktops and wider screens
+@media (min-width: 1028px) {
+  .map-container {
+    .leaflet-container {
+      @include border-radius(10px); // Largest border radius for large screens
+      @include box-shadow($box-shadow-light); // Standard shadow
+    }
+
+    .leaflet-popup-content-wrapper {
+      @include border-radius(8px); // Larger border radius
+      padding: 15px; // Larger padding
+
+      .leaflet-popup-content {
+        strong {
+          font-size: 18px; // Larger font size for better readability
+        }
+      }
+    }
+
+    .leaflet-marker-icon {
+      width: 36px; // Larger marker icon size
+      height: 36px; // Maintain aspect ratio
+    }
+  }
+}

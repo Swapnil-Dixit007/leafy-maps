@@ -1,0 +1,199 @@
+// Mixins
+
+// Mixin to apply control styles with background color, text color, and size
+@mixin control-styles($bg-color, $text-color, $size) {
+  background-color: $bg-color;
+  color: $text-color;
+  width: $size;
+  height: $size;
+  line-height: $size;
+  text-align: center;
+  font-size: $font-size-large;
+  border: none;
+  border-radius: $border-radius;
+  margin: 2px;
+
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+}
+
+// Main container for the app
+.app-container {
+  background: $background-white;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 0;
+  white-space: normal;
+  top: 0;
+
+  // Section for the map
+  .map-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    bottom: 0;
+    background-color: $background-light-gray;
+    z-index: 0;
+    height: 100vh;
+  }
+
+  // Section for the search box
+  .searchbox-section {
+    padding: $padding;
+    top: 0;
+    position: absolute;
+    left: 0;
+  }
+}
+
+// Overriding Leaflet control styles
+.leaflet-control {
+  background-color: $background-light;
+  box-shadow: $box-shadow;
+
+  // Zoom control styling
+  &-zoom {
+    border-radius: $border-radius;
+
+    a {
+      @include control-styles($background-dark-blue, white, $control-size);
+
+      &:hover {
+        background-color: $background-dark-blue-hover;
+      }
+    }
+  }
+
+  // Attribution control styling
+  &-attribution {
+    background-color: $background-light;
+    font-size: $font-size-small;
+    color: $text-light;
+
+    a {
+      color: $text-link;
+
+      &:hover {
+        color: $text-link-hover;
+      }
+    }
+  }
+
+  // Layers control styling
+  &-layers {
+    background-color: $background-white;
+    border-radius: $border-radius;
+    padding: 10px;
+  }
+}
+
+// Specific styling for zoom controls
+.leaflet-control-zoom {
+  border-radius: 5px;
+  background-color: $background-white;
+
+  a {
+    @include control-styles($background-white, $text-dark, $control-size);
+
+    &:hover {
+      background-color: $background-white;
+    }
+  }
+}
+
+// Additional styling for Leaflet control container
+.leaflet-control-container {
+  .leaflet-control-zoom.leaflet-bar.leaflet-control {
+    border: 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+    border-radius: 8px;
+  }
+}
+
+// Styling for attribution control
+.leaflet-control-attribution {
+  background-color: #f1f1f1;
+  font-size: $font-size-small;
+  color: #555;
+  padding: 5px;
+  border-radius: 5px;
+
+  a {
+    color: $text-link;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Styling for layer control
+.leaflet-control-layers {
+  display: none;
+}
+
+// Media Query for responsive design
+
+// For screens smaller than 768px
+@media (max-width: 768px) {
+  .leaflet-control {
+    a {
+      width: $control-size-small;
+      height: $control-size-small;
+    }
+  }
+}
+
+// For screens smaller than 576px
+@media (max-width: 576px) {
+  // Ensure search box is full width
+  .app-container .searchbox-section {
+    width: 100%;
+    left: -12px;
+    padding: 10px;
+  }
+
+  // Adjust control styles
+  .leaflet-control {
+    a {
+      width: $control-size-small;
+      height: $control-size-small;
+    }
+  }
+
+  // Adjust attribution text and links
+  .leaflet-control-attribution {
+    font-size: $font-size-extra-small;
+  }
+}
+
+// For screens between 576px and 768px
+@media (min-width: 576px) and (max-width: 768px) {
+  // Search box takes up more space but stays manageable
+  .app-container .searchbox-section {
+    width: 75%;
+    left: 0;
+    padding: 15px;
+  }
+
+  // Adjust zoom controls
+  .leaflet-control {
+    a {
+      width: $control-size-small;
+      height: $control-size-small;
+    }
+  }
+}
+
+// For screens smaller than 1028px
+@media (max-width: 1028px) {
+  .app-container .searchbox-section {
+    padding: $padding;
+    left: 60px;
+  }
+}

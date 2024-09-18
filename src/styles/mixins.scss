@@ -1,0 +1,40 @@
+// Mixin to apply box shadow
+@mixin box-shadow($shadow) {
+  box-shadow: $shadow;
+}
+
+// Mixin to apply border radius
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+// Mixin to apply button styles
+@mixin button-styles($padding, $border-radius) {
+  padding: $padding;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+// Mixin to apply input styles
+@mixin input-styles($width, $height, $padding-left) {
+  position: relative;
+  background: #fff;
+  box-sizing: border-box;
+  padding-left: $padding-left;
+  width: $width;
+  height: $height;
+  border: none;
+  @include box-shadow($box-shadow-input);
+}
+
+// Mixin to apply transition styles
+@mixin transition($property, $duration) {
+  transition: $property $duration ease;
+}
+
+// Mixin to set sidebar width
+@mixin sidebar-width($width) {
+  width: $width;
+}

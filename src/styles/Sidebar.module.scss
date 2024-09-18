@@ -1,0 +1,145 @@
+@import 'mixins'; // Import mixins for use in this stylesheet
+
+// Sidebar Container
+.sidebar-container {
+  background-color: $bg-color-white; // Background color of the sidebar
+  border-right: 1px solid $border-color-light; // Border on the right side of the sidebar
+  height: 100vh; // Full viewport height
+  position: absolute; // Positioned absolutely within its container
+  z-index: 1; // Positioned above other content
+  left: -5px; // Adjust positioning from the left
+  @include sidebar-width(320px); // Set sidebar width when fully open
+  height: 100%; // Full height
+  padding: $padding-default; // Default padding
+  display: flex; // Flexbox layout
+  flex-direction: column; // Align children in a column
+  @include box-shadow($box-shadow-default); // Apply default box shadow
+  @include transition(width, $transition-duration); // Smooth transition for width changes
+}
+
+// Open Sidebar
+.open {
+  @include sidebar-width($sidebar-width-open); // Sidebar width when open
+}
+
+// Closed Sidebar
+.closed {
+  @include sidebar-width($sidebar-width-closed); // Sidebar width when closed
+  padding: 0; // Remove padding
+  text-align: center; // Center align text
+}
+
+// Toggle Button
+.toggle-button {
+  margin-top: 10px; // Margin on top of the toggle button
+}
+
+// Headings (h2)
+h2 {
+  font-size: 1.5rem; // Font size for h2 headings
+  margin: 5px 16px; // Margin around h2 headings
+  color: $text-color-dark; // Text color for h2 headings
+}
+
+// Material UI List Item Button
+.MuiListItemButton-root {
+  padding: $padding-default; // Default padding for list item button
+  @include transition(background-color, 0.2s); // Smooth transition for background color changes
+
+  &:hover {
+    background-color: $hover-bg-color; // Background color on hover
+  }
+}
+
+// Material UI List Item Text
+.MuiListItemText-root {
+  color: $text-color-dark; // Text color for list item text
+}
+
+// Location Icon
+.location-icon {
+  margin-right: 10px; // Margin on the right side of the location icon
+  color: #333333 // Color of the location icon
+}
+
+// Responsive Styles
+
+// For screens with a maximum width of 576px
+@media (max-width: 576px) {
+  h2 {
+    font-size: 1.2rem; // Smaller font size for h2 on small screens
+    margin: 4px 12px; // Adjust margin for smaller screens
+  }
+
+  .toggle-button {
+    margin-top: 8px; // Adjust margin for toggle button on small screens
+  }
+
+  .MuiListItemButton-root {
+    padding: $padding-small; // Smaller padding for list item button
+  }
+
+  .location-icon {
+    margin-right: 8px; // Adjust margin for location icon
+  }
+}
+
+// For screens between 480px and 575px
+@media (min-width: 480px) and (max-width: 575px) {
+  h2 {
+    font-size: 1.3rem; // Medium font size for h2
+    margin: 5px 14px; // Adjust margin for medium screens
+  }
+
+  .toggle-button {
+    margin-top: 9px; // Adjust margin for toggle button
+  }
+
+  .MuiListItemButton-root {
+    padding: $padding-small; // Smaller padding for list item button
+  }
+
+  .location-icon {
+    margin-right: 9px; // Adjust margin for location icon
+  }
+}
+
+// For screens between 576px and 768px
+@media (min-width: 576px) and (max-width: 768px) {
+  h2 {
+    font-size: 1.4rem; // Medium-large font size for h2
+    margin: 5px 15px; // Adjust margin for medium-large screens
+  }
+
+  .toggle-button {
+    margin-top: 10px; // Adjust margin for toggle button
+  }
+
+  .MuiListItemButton-root {
+    padding: $padding-medium; // Medium padding for list item button
+  }
+
+  .location-icon {
+    margin-right: 10px; // Adjust margin for location icon
+  }
+}
+
+// For screens between 768px and 1028px
+@media (min-width: 768px) and (max-width: 1028px) {
+  h2 {
+    font-size: 1.5rem; // Larger font size for h2
+    margin: 5px 16px; // Adjust margin for larger screens
+  }
+
+  .toggle-button {
+    margin-top: 10px; // Adjust margin for toggle button
+  }
+
+  .MuiListItemButton-root {
+    padding: $padding-medium; // Medium padding for list item button
+  }
+
+  .location-icon {
+    margin-right: 10px; // Adjust margin for location icon
+  }
+}
