@@ -104,7 +104,6 @@
 
       .input-wrapper {
         .search-input {
-          width: 100%;
           height: 40px;
           padding-left: 10px;
         }
@@ -125,15 +124,73 @@
   }
 }
 
+// Styles for screens between 480px and 380px
+@media (min-width: 380px) and (max-width: 480px) {
+  .searchbox-container {
+    margin: 10px 0;
+    width: 360px; // Adjust width for this range
+    left: 0;
+
+    .input-container {
+      flex-direction: row;
+
+      .input-wrapper {
+        .search-input {
+          height: 42px; // Adjust height for this range
+          padding-left: 5px;
+          font-size: 15px; // Adjust font size for this range
+          width: 270px; 
+        }
+      }
+
+      .button-wrapper {
+        position: absolute;
+        top: 0;
+        right: 107px; // Adjust right positioning for this range
+        width: auto;
+
+        .search-button {
+          padding: 12px; // Adjust padding for this range
+        }
+      }
+    }
+
+    .result-container {
+      width: 100%;
+      max-height: 350px; // Adjust max-height for this range
+    }
+  }
+}
+
+
 // Styles for small tablets and larger mobile devices
 @media (min-width: 480px) and (max-width: 575px) {
   .searchbox-container {
-    width: 345px;
+    margin: 10px 0;
+    left: 0;
+    width: 400px;
 
     .input-container {
+      flex-direction: row;
+
+      .input-wrapper {
+        .search-input {
+          height: 44px;
+          padding-left: 2px;
+          font-size: 16px;
+          width: 336px;
+        }
+      }
+
       .button-wrapper {
+        position: absolute;
         top: 0;
-        right: 20px;
+        right: 85px;
+        width: auto;
+
+        .search-button {
+          padding: 14px;
+        }
       }
     }
 
@@ -143,6 +200,7 @@
     }
   }
 }
+
 
 // Styles for tablets and larger phones
 @media (min-width: 576px) and (max-width: 768px) {
@@ -156,7 +214,6 @@
 
       .input-wrapper {
         .search-input {
-          width: 100%;
           height: 44px;
           padding-left: 2px;
           font-size: 16px;
@@ -166,7 +223,7 @@
       .button-wrapper {
         position: absolute;
         top: 0;
-        right: 15px;
+        right: 35px;
         width: auto;
 
         .search-button {
@@ -192,7 +249,6 @@
     .input-container {
       .input-wrapper {
         .search-input {
-          width: 100%;
           height: 48px;
           padding-left: 15px;
           font-size: 16px;
@@ -202,7 +258,7 @@
       .button-wrapper {
         position: absolute;
         top: 0;
-        right: 5px;
+        right: 25px;
 
         .search-button {
           padding: 16px;
