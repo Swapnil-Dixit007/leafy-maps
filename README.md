@@ -55,8 +55,8 @@ Once the project is running, you can:
 - Add custom markers to the map.
 
 You can also customize the initial map view and markers by modifying the initialLocations array in the App.tsx file.
-
-```const initialLocations = [
+```
+const initialLocations = [
   { display_name: 'London', lat: 51.5074, lon: -0.1278 },
   { display_name: 'New York', lat: 40.7128, lon: -74.006 },
   // Add more locations here
