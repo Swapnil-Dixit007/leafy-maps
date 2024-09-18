@@ -30,7 +30,7 @@ Make sure you have the following installed:
 1. Clone the repository:
 ```git clone https://github.com/your-username/leafy-map.git```
 
-2. open project in IDE or you can also run it via terminal.
+2. Open project in IDE or you can also run it via terminal.
 
 3. Install dependencies:
 ```npm install```
